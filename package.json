@@ -1,0 +1,21 @@
+{
+  "name": "net-alert",
+  "version": "0.1.0",
+  "description": "description",
+  "main": "app.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "network"
+  ],
+  "author": "IWABUCHI Yuuki",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.4",
+    "pug": "^2.0.0-beta6"
+  }
+}

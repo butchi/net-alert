@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+p {
+  margin: 0;
+}
+
+body {
+  font-size: 14px;
+  font-size: 1.4rem;
+
+  line-height: 1.618;
+}
+
+main {
+  display: block;
+}
