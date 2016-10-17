@@ -181,8 +181,8 @@ var Index = function () {
 
       var isWired = true;
 
-      onAudio.src = '../audio/on.mp3';
-      offAudio.src = '../audio/off.mp3';
+      onAudio.src = './audio/on.mp3';
+      offAudio.src = './audio/off.mp3';
 
       setInterval(function () {
         var time = new Date();
