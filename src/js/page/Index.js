@@ -27,7 +27,7 @@ export default class Index {
 
       $.ajax('./', {
         success: function(res) {
-          // console.log('success');
+          console.log('success');
 
           let $content;
           let $time;
@@ -49,7 +49,7 @@ export default class Index {
           isWired = true;
         },
         error: function(err) {
-          // console.log('failed');
+          console.log('failed');
 
           let $content;
           let $time;

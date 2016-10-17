@@ -195,7 +195,7 @@ var Index = function () {
 
         $.ajax('./', {
           success: function success(res) {
-            // console.log('success');
+            console.log('success');
 
             var $content = void 0;
             var $time = void 0;
@@ -212,7 +212,7 @@ var Index = function () {
             isWired = true;
           },
           error: function error(err) {
-            // console.log('failed');
+            console.log('failed');
 
             var $content = void 0;
             var $time = void 0;
