@@ -193,7 +193,7 @@ var Index = function () {
           hour12: false
         });
 
-        $.ajax('./', {
+        $.ajax('./index.html', {
           success: function success(res) {
             console.log('success');
 

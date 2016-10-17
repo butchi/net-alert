@@ -25,7 +25,7 @@ export default class Index {
         hour12: false,
       });
 
-      $.ajax('./', {
+      $.ajax('./index.html', {
         success: function(res) {
           console.log('success');
 
