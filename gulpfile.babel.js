@@ -70,7 +70,7 @@ gulp.task('minify', () => {
 gulp.task('deco', () => {
   return gulp.src(`${DEST}/js/script.js`)
     .pipe(decodecode({
-      decoArr: ['b', 'u', 't', 'c', 'h', 'i'],
+      decoArr: ['l', 'i', 'n', 'e'],
     }))
     .pipe(rename('script.deco.js'))
     .pipe(gulp.dest(`${DEST}/js`))
