@@ -25,7 +25,7 @@ export default class Index {
         hour12: false,
       });
 
-      $.ajax('./index.html', {
+      $.ajax(`./js/online.js?${Date.now()}`, {
         success: function(res) {
           console.log('success');
 

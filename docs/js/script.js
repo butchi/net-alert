@@ -193,7 +193,7 @@ var Index = function () {
           hour12: false
         });
 
-        $.ajax('./index.html', {
+        $.ajax('./js/online.js?' + Date.now(), {
           success: function success(res) {
             console.log('success');
 
