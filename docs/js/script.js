@@ -137,30 +137,7 @@ var Common = function () {
 
   _createClass(Common, [{
     key: 'initialize',
-    value: function initialize() {
-      console.log('page common');
-
-      this.setEnvClass();
-    }
-  }, {
-    key: 'setEnvClass',
-    value: function setEnvClass() {
-      var $html = $('html');
-
-      _ns2.default.isSp = false;
-      _ns2.default.isPc = false;
-      _ns2.default.isTab = false;
-
-      if ($html.hasClass('is-sp')) {
-        _ns2.default.isSp = true;
-      }
-      if ($html.hasClass('is-pc')) {
-        _ns2.default.isPc = true;
-      }
-      if ($html.hasClass('is-tab')) {
-        _ns2.default.isTab = true;
-      }
-    }
+    value: function initialize() {}
   }]);
 
   return Common;
@@ -204,8 +181,8 @@ var Index = function () {
 
       var isWired = true;
 
-      onAudio.src = '/audio/on.mp3';
-      offAudio.src = '/audio/off.mp3';
+      onAudio.src = '../audio/on.mp3';
+      offAudio.src = '../audio/off.mp3';
 
       setInterval(function () {
         var time = new Date();
@@ -216,8 +193,10 @@ var Index = function () {
           hour12: false
         });
 
-        $.ajax('/api/wired', {
+        $.ajax('./', {
           success: function success(res) {
+            // console.log('success');
+
             var $content = void 0;
             var $time = void 0;
 
@@ -233,6 +212,8 @@ var Index = function () {
             isWired = true;
           },
           error: function error(err) {
+            // console.log('failed');
+
             var $content = void 0;
             var $time = void 0;
 

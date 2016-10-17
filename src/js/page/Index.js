@@ -13,8 +13,8 @@ export default class Index {
 
     var isWired = true;
 
-    onAudio.src = '/audio/on.mp3';
-    offAudio.src = '/audio/off.mp3';
+    onAudio.src = '../audio/on.mp3';
+    offAudio.src = '../audio/off.mp3';
 
     setInterval(function() {
       var time = new Date();
@@ -25,8 +25,10 @@ export default class Index {
         hour12: false,
       });
 
-      $.ajax('/api/wired', {
+      $.ajax('./', {
         success: function(res) {
+          // console.log('success');
+
           let $content;
           let $time;
 
@@ -47,6 +49,8 @@ export default class Index {
           isWired = true;
         },
         error: function(err) {
+          // console.log('failed');
+
           let $content;
           let $time;
 
