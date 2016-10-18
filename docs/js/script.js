@@ -174,38 +174,36 @@ var Index = function () {
   _createClass(Index, [{
     key: 'initialize',
     value: function initialize() {
-      var $body = $('body');
+      var _this = this;
 
+      this.$body = $('body');
+
+      var firstAudio = new Audio();
       var onAudio = new Audio();
       var offAudio = new Audio();
 
       var isWired = true;
 
+      firstAudio.src = './audio/first.mp3';
       onAudio.src = './audio/on.mp3';
       offAudio.src = './audio/off.mp3';
 
-      setInterval(function () {
-        var time = new Date();
-        var timeStr = time.toLocaleString('en-US', {
-          hour: 'numeric',
-          minute: 'numeric',
-          second: 'numeric',
-          hour12: false
-        });
+      firstAudio.play();
+      this.alert({
+        text: 'ネットが切れたらお知らせするよー'
+      });
 
+      setInterval(function () {
         $.ajax('./js/online.js?' + Date.now(), {
           success: function success(res) {
             console.log('success');
 
-            var $content = void 0;
-            var $time = void 0;
-
             if (isWired === null) {
               isWired = true;
             } else if (isWired === false) {
-              $time = $('<time></time>').text(timeStr);
-              $content = $('<p></p>').text(' ネットがつながったー').prepend($time);
-              $body.append($content);
+              _this.alert({
+                text: 'ネットがつながったー'
+              });
 
               onAudio.play();
             }
@@ -214,22 +212,39 @@ var Index = function () {
           error: function error(err) {
             console.log('failed');
 
-            var $content = void 0;
-            var $time = void 0;
-
             if (isWired === null) {
               isWired = false;
             } else if (isWired === true) {
-              $time = $('<time></time>').text(timeStr);
-              $content = $('<p></p>').text(' ネットが切れたー').prepend($time);
-              $body.append($content);
-
               offAudio.play();
+
+              _this.alert({
+                text: 'ネットが切れたー'
+              });
             }
+
             isWired = false;
           }
         });
       }, 1000);
+    }
+  }, {
+    key: 'alert',
+    value: function alert() {
+      var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      var time = new Date();
+      var timeStr = time.toLocaleString('en-US', {
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        hour12: false
+      });
+
+      var text = opts.text;
+
+      var $time = $('<time></time>').text(timeStr);
+      var $content = $('<p></p>').text(' ' + text).prepend($time);
+      this.$body.append($content);
     }
   }]);
 
